@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>how to sign up</title>
+</head>
+<style>
+    h1{
+        text-transform: capitalize;
+        font-weight: 400;
+        border: 2px darkblue solid;
+        width: 40%;
+        
+    }
+    ul {
+        border: 2px #80008036 solid;
+        width: 20%;
+        float: left;
+        margin: 4px;
+        box-sizing:border-box;
+        list-style: none;
+    }
+    li {
+        margin-top: 8px;
+        padding: 5px;
+        color: black;
+        
+    }
+</style>
+<body background="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAM0A9gMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAEDAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANdEHbNRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBAAAAAAAAVABUAFQAVAAVABUAUQAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQAEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAUQUUQBRBBRBRRAFEEFEFFEAUQBRBBRAFEFFEEFEFFEABAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAAQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEABAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAFEAUQBRAH//2Q==">
+   
+   
+         <h1>DISPLAYING Intruction</h1>
+
+         <h4>Click Show button to display the process of sign up setp by step.</h4>
+             <button id="grab">Show</button>
+             <div id="universities"></div>
+         <script>
+     
+         document.getElementById('grab').addEventListener('click', showValues);
+         function showValues() {
+             var req = new XMLHttpRequest();
+             req.open('GET','returnhandler.php',true );
+     
+             req.onload = function(){
+                 if(req.status==200){
+                 var namez = JSON.parse(req.responseText);
+                 var display = '';
+     
+                 for (var i in namez){
+                     display += '<ul>'+
+                         '<img src="'+namez[i].name+'" width="200px" height="200px" alt="">'+
+                         '<li>ID: '+namez[i].id+'</li>'+
+                         '<li>Directory: '+namez[i].name+'</li>'+'</ul>'
+                         ;
+                 }
+                 document.getElementById('universities').innerHTML=display;
+             }
+         }
+             req.send();
+         }
+         </script>
+
+         
+         <h4><a href ="signup1.php">
+            Back
+            </a>
+            </h4>
+            
+            <h6><a href ="img.html"download>
+               Download
+                </a>
+           
+
+</body>
+</html>
